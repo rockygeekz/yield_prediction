@@ -8,6 +8,10 @@ app = Flask(__name__)
 model_file = 'models/crop_yield_model.pkl'
 model = joblib.load(model_file)
 
+@app.route('/')
+def index():
+    return "Server is up and running!"
+
 @app.route('/predict', methods=['POST'])
 def predict():
     # Get data from request
